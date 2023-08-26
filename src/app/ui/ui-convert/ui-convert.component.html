@@ -1,0 +1,61 @@
+<div class="flex flex-col items-center justify-center cur-box">
+  <form [formGroup]="form" class="mony-convert">
+    <div class="relative flex items-center justify-center from-amount">
+      <div>
+        <p class="absolute text-xl text-white">Amount</p>
+        <input
+          formControlName="amountFrom"
+          type="number"
+          min="0"
+          placeholder="Enter Amount"
+          class="pl-4 pr-4 bg-black border-none outline-none fst-amount"
+        />
+      </div>
+      <div class="relative flex items-center">
+        <p class="absolute text-xl text-white">From</p>
+        <!-- <div class="bg-gray-600 from"></div> -->
+        <mat-form-field class="form">
+          <mat-select
+            formControlName="currencyFrom"
+            [(value)]="selectedOptionFrom"
+          >
+            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+              ><div class="flex flex-row">
+                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
+                {{ ConCurrency.code }}
+              </div></mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="relative flex items-center justify-center to-amount">
+      <div>
+        <p class="absolute">To</p>
+        <!-- <div class="bg-red-600 to"></div> -->
+        <mat-form-field class="form">
+          <mat-select
+            formControlName="currencyTo"
+            [(value)]="selectedOptionFrom"
+          >
+            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+              ><div class="flex flex-row">
+                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
+                {{ ConCurrency.code }}
+              </div></mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <p class="absolute">Amount</p>
+        <input
+          formControlName="amountTo"
+          type="text"
+          class="border-none outline-none snd-amount"
+        />
+      </div>
+    </div>
+    <button (click)="submit()" type="submit" class="btn">Convert</button>
+  </form>
+</div>

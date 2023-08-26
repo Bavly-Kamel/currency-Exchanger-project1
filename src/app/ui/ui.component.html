@@ -1,0 +1,23 @@
+<!-- <h1 class="absolute mt-3 text-3xl text-white">ConCurrency</h1> -->
+
+<div class="cur-box">
+  <div class="flex items-center justify-center h-20 p-4 text-black btn-cont">
+    <button
+      (click)="activeTab = 'convert'"
+      class="flex justify-center bg-gray-600 btn1"
+      [ngClass]="{ '!bg-white': activeTab === 'convert' }"
+    >
+      Convert
+    </button>
+    <button
+      (click)="activeTab = 'compare'"
+      class="flex justify-center bg-gray-600 btn2"
+      [ngClass]="{ '!bg-white': activeTab === 'compare' }"
+    >
+      Compare
+    </button>
+  </div>
+
+  <app-ui-compare *ngIf="activeTab === 'compare'"></app-ui-compare>
+  <app-ui-convert *ngIf="activeTab === 'convert'"></app-ui-convert>
+</div>

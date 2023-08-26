@@ -1,0 +1,127 @@
+:host {
+  @apply block;
+}
+
+.mony-convert {
+  .from-amount {
+    gap: 17.62px;
+    margin-top: 101px;
+    .fst-amount {
+      width: 222px;
+      height: 70px;
+      margin-right: 17.62px;
+      border-radius: 35.238px;
+      border: 0.881px solid #c5c5c5;
+      // background: #f9f9f9;
+      background: #e3e3e3;
+      position: relative;
+    }
+  }
+}
+.amount {
+  width: 222px;
+  height: 70px;
+}
+
+p {
+  bottom: 119px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 24.667px;
+  font-style: normal;
+  // font-weight: 600;F
+  line-height: normal;
+}
+// .fst-amount {
+//   width: 213px;
+//   height: 84px;
+//   border-radius: 35.238px;
+//   border: 0.881px solid #c5c5c5;
+//   // background: #f9f9f9;
+//   background: #e3e3e3;
+//   position: relative;
+// }
+.target-absolute {
+  position: absolute;
+  top: -60px;
+  left: 0;
+}
+.p {
+  top: -60px;
+}
+
+.from {
+  width: 324px;
+  height: 84px;
+  border-radius: 35px;
+}
+
+.to-amount {
+  // display: flex;
+  margin-top: 88px;
+  gap: 35px;
+}
+
+.to {
+  width: 324px;
+  height: 84px;
+  border-radius: 35px;
+}
+
+.snd-amount {
+  width: 213px;
+  height: 84px;
+  border-radius: 35px;
+}
+
+.btn {
+  width: 460px;
+  height: 70px;
+  margin-top: 54px;
+  padding: 18px;
+  border-radius: 29px;
+  background: #0e98d0;
+  color: #fff;
+  // font-family: Montserrat;
+  font-size: 28.19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2px;
+}
+h1 {
+  // bottom: 500px;
+  z-index: 10;
+  color: blue;
+  left: 221px;
+  top: 10px;
+  color: #fff;
+  font-family: Montserrat;
+}
+
+.main {
+  background-color: blue;
+  border-radius: 35px;
+}
+
+.form {
+  width: 222px;
+  height: 70px;
+}
+targeted-currency {
+  margin-left: 17.62px;
+}
+.input {
+  width: 222px;
+  height: 64px;
+  border-radius: 29px;
+  background-color: #f9f9f9;
+  margin-top: 23px;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+// .spinner {
+//   -webkit-text-stroke-color: #ff5722; /* Your custom color */
+// }

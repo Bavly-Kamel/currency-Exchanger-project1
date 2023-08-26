@@ -1,0 +1,54 @@
+:host {
+  background: url("../../assets/img/bg1.png") lightgray 50% / cover no-repeat;
+  @apply flex items-center justify-center relative h-full w-full;
+}
+
+.cur-box {
+  border-radius: 21.314px;
+  background: linear-gradient(
+    134deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(157, 157, 157, 0.2) 100%
+  );
+  backdrop-filter: blur(5.264404296875px);
+  // width: 700px;
+  // height: 768px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 86px;
+  padding-inline: 114px;
+
+  // margin-top: 191px;
+}
+
+.btn-cont {
+  padding: 7px;
+  width: 474px;
+  height: 69px;
+  gap: 111px;
+  border-radius: 36px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(219, 219, 219);
+  // margin-top: 90px;
+  color: #141414;
+  font-family: Poppins;
+  font-size: 24.314px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.btn-cont .btn1 {
+  width: 239px;
+  border-radius: 36.292px;
+  background-color: transparent;
+  padding: 16px;
+}
+
+.btn-cont .btn2 {
+  width: 239px;
+  border-radius: 36.292px;
+  background-color: transparent;
+  padding: 16px;
+}

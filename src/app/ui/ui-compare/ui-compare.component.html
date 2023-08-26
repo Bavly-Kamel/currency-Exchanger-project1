@@ -1,0 +1,72 @@
+<div class="flex flex-col items-center justify-center cur-box">
+  <form [formGroup]="form" class="flex flex-col items-center mony-convert">
+    <div class="relative flex from-amount">
+      <div>
+        <p class="absolute text-xl text-white p">Amount</p>
+        <input
+          formControlName="amountFrom"
+          type="number"
+          min="0"
+          class="pl-4 pr-4 bg-black border-none outline-none fst-amount"
+          placeholder="Enter Amount"
+        />
+      </div>
+      <div class="relative flex items-center">
+        <p class="absolute text-xl text-white p">From</p>
+        <!-- <div class="bg-gray-600 from"></div> -->
+        <mat-form-field class="form">
+          <mat-select
+            formControlName="currencyFrom"
+            [(value)]="selectedOptionFrom"
+          >
+            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+              ><div class="flex flex-row">
+                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
+                {{ ConCurrency.code }}
+              </div></mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="relative flex to-amount">
+      <div class="relative flex flex-col items-center">
+        <p class="target-absolute">Targeted currency</p>
+        <mat-form-field class="form">
+          <mat-select
+            formControlName="currencyTo1"
+            [(value)]="selectedOptionFrom"
+          >
+            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+              ><div class="flex flex-row">
+                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
+                {{ ConCurrency.code }}
+              </div></mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <input formControlName="amountTo1" type="number" class="input" />
+      </div>
+      <div class="relative flex flex-col items-center targeted-currency">
+        <p class="target-absolute">Targeted currency</p>
+        <mat-form-field class="form">
+          <mat-select
+            formControlName="currencyTo2"
+            [(value)]="selectedOptionFrom"
+          >
+            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+              ><div class="flex flex-row">
+                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
+                {{ ConCurrency.code }}
+              </div></mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <input formControlName="amountTo2" type="number" class="input" />
+      </div>
+    </div>
+    <button (click)="submit()" type="submit" value="submit" class="btn">
+      Compare
+    </button>
+  </form>
+</div>
