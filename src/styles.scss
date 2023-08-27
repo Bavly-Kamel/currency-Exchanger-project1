@@ -20,13 +20,13 @@ $currency-warn: mat.define-palette(mat.$red-palette);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $currency-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $currency-primary,
-      accent: $currency-accent,
-      warn: $currency-warn,
-    ),
-  )
+    (
+      color: (
+        primary: $currency-primary,
+        accent: $currency-accent,
+        warn: $currency-warn,
+      ),
+    )
 );
 
 // Include theme styles for core and each component used in your app.
@@ -37,6 +37,8 @@ $currency-theme: mat.define-light-theme(
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap");
 
 html,
 body,
@@ -63,7 +65,7 @@ body {
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled)
-  .mdc-line-ripple::before {
+.mdc-line-ripple::before {
   display: none;
 }
 

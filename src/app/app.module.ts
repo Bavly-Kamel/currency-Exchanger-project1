@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiComponent } from './ui/ui.component';
-import { UiCompareComponent } from './ui/ui-compare/ui-compare.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UiConvertComponent } from './ui/ui-convert/ui-convert.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+import { AddToFavComponent } from './add-to-fav/add-to-fav.component';
+import { LiveExchangeRatesComponent } from './live-exchange-rates/live-exchange-rates.component';
+import { PortfolioCardComponent } from './live-exchange-rates/portfolio-card/portfolio-card.component';
 
 
 
@@ -26,6 +28,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     UiCompareComponent,
     NotFoundComponent,
     UiConvertComponent,
+    AddToFavComponent,
+    LiveExchangeRatesComponent,
+    PortfolioCardComponent
 
   ],
   imports: [
