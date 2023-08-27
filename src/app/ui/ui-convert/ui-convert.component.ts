@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { CurrenciesList } from '../data.static';
 import { FormGroup, FormControl, Validators , FormBuilder} from '@angular/forms';
 import { CurrencyService } from 'src/app/services/currency.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -15,12 +16,13 @@ export class UiConvertComponent implements OnInit {
   forms: FormGroup;
   storedcurr: any= {result:0};
 
-   constructor(private currencyService : CurrencyService , private fb: FormBuilder ){
+   constructor(private currencyService : CurrencyService , private fb: FormBuilder,private spinner: NgxSpinnerService ){
     
     
    
    }
    ngOnInit(): void {
+    this.currencyService.getCurrencies().subscribe(res => {console.log(res)});
     this.forms = this.fb.group({ 
       amount: [1], // Default amount
       fromCurrency: ['USD'], // Default currency
@@ -28,7 +30,12 @@ export class UiConvertComponent implements OnInit {
       amountTO: ['']
       
     });
+    
+ 
+    
+  
     this.currencyService.convertCurrency(20,"EGP","USD").subscribe((res)=>{ })
+  
     
     
   }
@@ -42,16 +49,20 @@ export class UiConvertComponent implements OnInit {
   form = new FormGroup({
     amountFrom: new FormControl<number>('' as any, Validators.required),
     currencyFrom: new FormControl<string>('', Validators.required),
-    amountTo: new FormControl<number>({ value: 0, disabled: true }),
+    amountTo: new FormControl<number>({ value: null, disabled: true }),
     currencyTo: new FormControl<string>('', Validators.required),
   });
 
   submit() {
-    this.currencyService.convertCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,this.form.value.currencyTo).subscribe((res)=>{ this.storedcurr = res})
-    
-    this.form.patchValue({
+    this.spinner.show();
+    this.currencyService.convertCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,this.form.value.currencyTo).subscribe((res)=>{ this.storedcurr = res ; this.form.patchValue({
       amountTo: this.storedcurr.result
-    })
+    }) ; 
+    this.spinner.hide();
+  })
+   
+    
+    
 }
 
 reset()
@@ -59,7 +70,7 @@ reset()
   console.log(this.amountFrom.value)
     if(this.amountFrom.value==0||this.amountFrom.value==null){
       this.form.patchValue({
-        amountTo: 0
+        amountTo: null
       })
 
     }

@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { CurrenciesList } from '../data.static';
 import { FormControl, FormGroup, Validators , FormBuilder} from '@angular/forms';
 import { CurrencyService } from 'src/app/services/currency.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({ 
   selector: 'app-ui-compare',
@@ -15,7 +17,7 @@ export class UiCompareComponent implements OnInit {
   result : any;
   
 
-  constructor(private currencyService : CurrencyService ,  private fb: FormBuilder){
+  constructor(private currencyService : CurrencyService ,  private fb: FormBuilder,private spinner: NgxSpinnerService){
    
 
   }
@@ -40,30 +42,32 @@ export class UiCompareComponent implements OnInit {
   form = new FormGroup({
     amountFrom: new FormControl<number>('' as any, Validators.required),
     currencyFrom: new FormControl<string>('', Validators.required),
-    amountTo1: new FormControl<number >({ value: 0, disabled: false }),
+    amountTo1: new FormControl<number >({ value: null, disabled: false }),
     currencyTo1: new FormControl<string>('', Validators.required),
-    amountTo2: new FormControl<number>({ value: 0, disabled: false }),
+    amountTo2: new FormControl<number>({ value: null, disabled: false }),
     currencyTo2: new FormControl<string>('', Validators.required),
   });
 
   submit() {
     console.log(this.form.value)
+    this.spinner.show();
     this.currencyService.compareCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,[this.form.value.currencyTo1,this.form.value.currencyTo2]).subscribe((res)=>{this.result=res;console.log(res)
      
   
       if(this.result && this.result.conversion_rates){
-        this.targetcurr1=this.result.conversion_rates[0].rate
-        this.targetcurr2=this.result.conversion_rates[1].rate
+        this.targetcurr1=this.result.conversion_rates[0].amount
+        this.targetcurr2=this.result.conversion_rates[1].amount
        
         this.form.patchValue({
   
-          amountTo1: this.result.conversion_rates[0].rate,
-        amountTo2 : this.result.conversion_rates[1].rate
+          amountTo1: this.result.conversion_rates[0].amount,
+        amountTo2 : this.result.conversion_rates[1].amount
         })
         
       }
+      this.spinner.hide();
       
-    } )
+                                                                                                 } )
    
    
     
@@ -72,12 +76,12 @@ export class UiCompareComponent implements OnInit {
 
 reset()
 {
-  console.log(this.amountFrom.value)
+  //console.log(this.amountFrom.value)
     if(this.amountFrom.value==0||this.amountFrom.value==null){
       this.form.patchValue({
   
-        amountTo1: 0,
-      amountTo2 : 0
+        amountTo1: null,
+      amountTo2 : null
       })
 
     }

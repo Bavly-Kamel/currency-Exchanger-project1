@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UiConvertComponent } from './ui/ui-convert/ui-convert.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     UiCompareComponent,
     NotFoundComponent,
     UiConvertComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    NgxSpinnerModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
