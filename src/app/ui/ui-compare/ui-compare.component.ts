@@ -48,19 +48,44 @@ export class UiCompareComponent implements OnInit {
 
   submit() {
     console.log(this.form.value)
-    this.currencyService.compareCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,[this.form.value.currencyTo1,this.form.value.currencyTo2]).subscribe((res)=>{this.result=res;console.log(res)})
-    if(this.result && this.result.conversion_rates){
-      this.targetcurr1=this.result.conversion_rates[0].rate
-      this.targetcurr2=this.result.conversion_rates[1].rate
-
-      this.form.patchValue({
-
-        amountTo1: this.result.conversion_rates[0].rate,
-      amountTo2 : this.result.conversion_rates[1].rate
-      })
+    this.currencyService.compareCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,[this.form.value.currencyTo1,this.form.value.currencyTo2]).subscribe((res)=>{this.result=res;console.log(res)
+     
+  
+      if(this.result && this.result.conversion_rates){
+        this.targetcurr1=this.result.conversion_rates[0].rate
+        this.targetcurr2=this.result.conversion_rates[1].rate
+       
+        this.form.patchValue({
+  
+          amountTo1: this.result.conversion_rates[0].rate,
+        amountTo2 : this.result.conversion_rates[1].rate
+        })
+        
+      }
       
-    }
+    } )
+   
    
     
   console.log(this.form.value);
-} }
+}
+
+reset()
+{
+  console.log(this.amountFrom.value)
+    if(this.amountFrom.value==0||this.amountFrom.value==null){
+      this.form.patchValue({
+  
+        amountTo1: 0,
+      amountTo2 : 0
+      })
+
+    }
+}
+get amountFrom(){
+  return this.form.get('amountFrom') as FormControl
+
+}
+}
+
+

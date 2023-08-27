@@ -53,4 +53,19 @@ export class UiConvertComponent implements OnInit {
       amountTo: this.storedcurr.result
     })
 }
+
+reset()
+{
+  console.log(this.amountFrom.value)
+    if(this.amountFrom.value==0||this.amountFrom.value==null){
+      this.form.patchValue({
+        amountTo: 0
+      })
+
+    }
+}
+get amountFrom(){
+  return this.form.get('amountFrom') as FormControl
+
+}
 }
