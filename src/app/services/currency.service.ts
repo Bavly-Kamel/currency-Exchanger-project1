@@ -7,12 +7,34 @@ import { ICurrency } from '../models/currency.model';
   providedIn: 'root',
 })
 export class CurrencyService {
+  baseURL = 'http://www.amrcurrencyconversion.site';
+
   constructor(private http: HttpClient) {}
+
+  getPortfolio() {
+    let myPortfolio = localStorage.getItem('myPortfolio')
+      ? JSON.parse(localStorage.getItem('myPortfolio') || '')
+      : [];
+    return myPortfolio;
+  }
+
+  updatePortfolio(currency: ICurrency) {
+    let myPortfolio = this.getPortfolio();
+    if (currency.selected) {
+      myPortfolio.push(currency);
+    } else {
+      myPortfolio = myPortfolio.filter(
+        (c: ICurrency) => c.code != currency.code
+      );
+    }
+    localStorage.setItem('myPortfolio', JSON.stringify(myPortfolio));
+  }
+
   getCurrencies(): Observable<ICurrency[]> {
-    return this.http.get('http://www.athe.store/api/v1').pipe(
+    return this.http.get(`${this.baseURL}/api/v1`).pipe(
       map((res: any) => {
         if (res) {
-          return Object.values(res.currencies).filter((v) => v) as ICurrency[];
+          return res.currencies as ICurrency[];
         } else {
           throw new Error('Failed to retrieve currencies!');
         }

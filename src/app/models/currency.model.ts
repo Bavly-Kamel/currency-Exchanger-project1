@@ -3,6 +3,7 @@ export interface ICurrency {
   code: string;
   flagUrl: string;
   desc: string;
+  rate?: number;
 }
 
 export interface IApiResponse<T> {

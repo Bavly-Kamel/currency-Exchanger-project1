@@ -1,25 +1,24 @@
 <div class="dropdown" [ngClass]="{ open: isDropdownOpen }">
-  <button class="add-button" (click)="toggleDropdown()">
-    <img
-      width="30"
-      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADAUlEQVR4nO2Zz0tUURTHP4yTIbnItEXqaiLal6V/QRHaRiTalP0PQpZStqhsmWi0KRqSViVELV2U6D+QuNIRyiK10q3ZxrhwBg6XO2/evfNm3hTzhQOPee98zz3v3Xt+DTTQQANJIAP0AWPAHLAC7AJ/RHbltzfAbaBXdFJHNzAJfAMOPOUr8BDoSmPh7cBTYD9g4bb8Bp4Ax2q1+KvAL8dCvgPPgGvAGXHykEgHcBa4DjwHNh36P4Er1Vx4Vt66bfgD0A80eXINAB8dfDNyP1G0AO8tQ6vAhQS4LwFrFvc7sZkIso7F54EjSRkAWoGXDicS+RL2trlD9XDXsjWdxIGt1eJLOTFEINqtaGO2Ta0wq+z+ANoq3TqrAXv+NLABfAZOBZyJQiVbqdtKUhd9CaSsKOqb8iEkOh2oZNfpozxpxfkQ3FMc5joEC4rjQVylJqu2MUkqLQcGFMeXuAVgn1UeZFN0IAtsKZ7zcZTGlYKpbUjRAYMXimeUGJhTCqYwS9uBYcXzOo7CilIwVWXaDvQonuU4CjtKwSSzUjgJjMhndcm84pmPeG4EyEXYOW6V3GWh439zxHM60VQqhQg7h6188P87sBNzC+UkYj0qIUuKZyniufGkt5A+xKYNTPsQn/M9xDqMmh42bQdu+IbRsTpLZHnFczOOQq9S2KyDUmJb8ZicUBYZGTrVQzF3OaSYQyZmRUUz+kjLgUXFcd9HsUtiblHZNBe+GPUtwiz0K/0934YGGfcVCdakzfNBThJUoUycd8HYWlf2pwhAuySOIomZ29QKr5Td7dCmHplV6pRvRh7VxoRlc7BSwpkaOjFh2XqcBGlWxnyaeDbgTESh1do2Rt56Dowj0eJwohAYnVzRZt2x+MSGu/pLTDtK4QWZHvhk7KwkqUUH31SSb96FISu9F2VLGvBhSfkd0k80y3WPFGb5CP1BaoQ2+Ro62YXKnrz1o6SATpmYbQQs3NQ2pjw4QR0gI0OnW1KzL0tnty9irj/JvVFpUurib9YGGuAfx18eKsRFV7jUgwAAAABJRU5ErkJggg=="
-    />
+  <button #dropdownBtn class="add-button" (click)="toggleDropdown()">
+    <img width="30" src="assets/images/add-to-fav-ico.svg" />
     <span>Add to Favorites</span>
   </button>
 
   <div class="dropdown-content" *ngIf="isDropdownOpen">
-    <button class="close-button" (click)="toggleDropdown()">&#215;</button>
+    <button class="close-button" (click)="toggleDropdown()">
+      <img width="30" src="assets/images/close-ico.svg" alt="" />
+    </button>
     My Favorites
-    <ul class="currency-list">
-      <li
-        *ngFor="let currency of currencies"
-        (click)="currency.selected = !currency.selected"
-      >
-        <img [src]="currency.flagUrl" width="30" alt="" />
+    <ul class="currency-list" #dropdown>
+      <li *ngFor="let currency of currencies" (click)="onSelect(currency)">
+        <div
+          class="w-14 h-14 overflow-hidden rounded-[100%] bg-cover bg-center me-4"
+          [ngStyle]="{ 'background-image': 'url(' + currency.flagUrl + ')' }"
+        ></div>
 
-        <div class="label">
+        <div class="text-[19px]">
           <span>{{ currency.code }}</span>
-          <div class="currency-text">Currency</div>
+          <div class="text-neutral-400">Currency</div>
         </div>
 
         <input type="checkbox" [(ngModel)]="currency.selected" />
