@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center cur-box">
-  <form [formGroup]="form" class="mony-convert">
+  <form [formGroup]="form"  class="mony-convert">
     <div class="relative flex items-center justify-center from-amount">
       <div>
         <p class="absolute text-xl text-white">Amount</p>
@@ -9,6 +9,7 @@
           min="0"
           placeholder="Enter Amount"
           class="pl-4 pr-4 bg-black border-none outline-none fst-amount"
+        
         />
       </div>
       <div class="relative flex items-center">
@@ -19,7 +20,7 @@
             formControlName="currencyFrom"
             [(value)]="selectedOptionFrom"
           >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+            <mat-option [value]="ConCurrency.code" *ngFor="let ConCurrency of currencesList"
               ><div class="flex flex-row">
                 <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
                 {{ ConCurrency.code }}
@@ -36,9 +37,9 @@
         <mat-form-field class="form">
           <mat-select
             formControlName="currencyTo"
-            [(value)]="selectedOptionFrom"
+            [(value)]="selectedOptionTo"
           >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+            <mat-option [value]="ConCurrency.code" *ngFor="let ConCurrency of currencesList"
               ><div class="flex flex-row">
                 <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
                 {{ ConCurrency.code }}
@@ -51,11 +52,18 @@
         <p class="absolute">Amount</p>
         <input
           formControlName="amountTo"
+          [(value)]="storedcurr.result"
           type="text"
           class="border-none outline-none snd-amount"
+          
         />
+       
+
       </div>
     </div>
     <button (click)="submit()" type="submit" class="btn">Convert</button>
   </form>
 </div>
+
+
+

@@ -17,9 +17,9 @@
         <mat-form-field class="form">
           <mat-select
             formControlName="currencyFrom"
-            [(value)]="selectedOptionFrom"
+            
           >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+            <mat-option [value]="ConCurrency.code" *ngFor="let ConCurrency of currencesList"
               ><div class="flex flex-row">
                 <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
                 {{ ConCurrency.code }}
@@ -35,12 +35,12 @@
         <mat-form-field class="form">
           <mat-select
             formControlName="currencyTo1"
-            [(value)]="selectedOptionFrom"
+            
           >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+            <mat-option [value]="ConCurrency1.code" *ngFor="let ConCurrency1 of currencesList2"
               ><div class="flex flex-row">
-                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
-                {{ ConCurrency.code }}
+                <img class="mr-2 w-7" src="{{ ConCurrency1.flagUrl }}" alt="" />
+                {{ ConCurrency1.code }}
               </div></mat-option
             >
           </mat-select>
@@ -52,9 +52,9 @@
         <mat-form-field class="form">
           <mat-select
             formControlName="currencyTo2"
-            [(value)]="selectedOptionFrom"
+            
           >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
+            <mat-option [value]="ConCurrency.code" *ngFor="let ConCurrency of currencesList3"
               ><div class="flex flex-row">
                 <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
                 {{ ConCurrency.code }}
@@ -62,7 +62,7 @@
             >
           </mat-select>
         </mat-form-field>
-        <input formControlName="amountTo2" type="number" class="input" />
+        <input formControlName="amountTo2"  type="number" class="input" />
       </div>
     </div>
     <button (click)="submit()" type="submit" value="submit" class="btn">
