@@ -1,6 +1,23 @@
 <!-- <h1 class="absolute z-20 text-3xl text-white bg-red-600 top-11">ConCurrency</h1> -->
 
 <!-- <h1 class="absolute text-5xl text-black bg-blue-700">hello</h1> -->
+<h1
+  class="absolute z-10 font-semibold top-28 text-white leading-normal text-xl hidden"
+>
+  Currency Convertor
+</h1>
+<h4
+  class="absolute z-10 font-semibold top-36 text-white leading-normal text-sm hidden"
+>
+  Check live foreign currency exchange rates
+</h4>
+
+<!-- <h2
+  class="absolute z-10 font-semibold top-16 text-white leading-normal text-xl"
+>
+  ConCurrency
+</h2> -->
+
 <img src="../../assets/img/bg1.png" alt="" />
 <div class="cur-box">
   <div class="flex items-center justify-center h-20 p-4 text-black btn-cont">
@@ -19,7 +36,6 @@
       Compare
     </button>
   </div>
-
   <app-ui-compare *ngIf="activeTab === 'compare'"></app-ui-compare>
   <app-ui-convert *ngIf="activeTab === 'convert'"></app-ui-convert>
 </div>

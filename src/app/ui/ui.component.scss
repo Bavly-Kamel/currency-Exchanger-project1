@@ -104,6 +104,14 @@
     max-height: 100%;
     width: 100vw;
   }
+  h1,
+  h4 {
+    display: block;
+    font-family: Montserrat;
+  }
+  h2 {
+    display: none;
+  }
 }
 
 @media (min-width: 767px) {
@@ -112,4 +120,11 @@
     max-height: 100%;
     width: 100vw;
   }
+}
+
+h2 {
+  left: 435px;
+  font-size: 35px;
+  top: 40px;
+  font-family: "Ruluko", sans-serif;
 }

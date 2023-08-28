@@ -106,20 +106,26 @@ h1 {
   .snd-amount {
     width: 121px;
     height: 48px;
-    background: #c5c5c5;
+    background: #ececec;
+    border: none;
+    outline: none;
   }
   p {
     color: black;
     font-size: 20px;
     top: -40px;
   }
+  .w-h-c {
+    width: 152px;
+    height: 48px;
+  }
   .btn {
     width: 315px;
     height: 48px;
   }
-  .mat-mdc-form-field[_ngcontent-ng-c2705259155],
-  .from {
-    width: 184px;
-    height: 48px;
-  }
+  // .mat-mdc-form-field[_ngcontent-ng-c2705259155],
+  // .from {
+  //   width: 184px;
+  //   height: 48px;
+  // }
 }
