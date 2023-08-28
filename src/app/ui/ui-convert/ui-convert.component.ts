@@ -56,9 +56,11 @@ export class UiConvertComponent implements OnInit {
 
   submit() {
     this.spinner.show();
-    console.log(this.form);
+    
+    
     this.currencyService.convertCurrency(this.form.value.amountFrom,this.form.value.currencyFrom.code,this.form.value.currencyTo.code).subscribe((res)=>{ this.storedcurr = res ; this.form.patchValue({
-      amountTo: this.storedcurr.result
+      amountTo: this.storedcurr.result.toFixed(4)
+      
     }) ;
     this.spinner.hide();
   })
@@ -67,9 +69,16 @@ export class UiConvertComponent implements OnInit {
 
 }
 
+
+
+roundToDecimal(value: number, decimals: number): number {
+  const factor = Math.pow(10, decimals);
+  return Math.round(value * factor) / factor;
+}
+
 reset()
 {
-  console.log(this.amountFrom.value)
+  
     if(this.amountFrom.value==0||this.amountFrom.value==null){
       this.form.patchValue({
         amountTo: null
