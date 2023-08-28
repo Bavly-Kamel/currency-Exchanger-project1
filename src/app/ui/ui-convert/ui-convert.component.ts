@@ -56,7 +56,8 @@ export class UiConvertComponent implements OnInit {
 
   submit() {
     this.spinner.show();
-    this.currencyService.convertCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,this.form.value.currencyTo).subscribe((res)=>{ this.storedcurr = res ; this.form.patchValue({
+    console.log(this.form);
+    this.currencyService.convertCurrency(this.form.value.amountFrom,this.form.value.currencyFrom.code,this.form.value.currencyTo.code).subscribe((res)=>{ this.storedcurr = res ; this.form.patchValue({
       amountTo: this.storedcurr.result
     }) ;
     this.spinner.hide();

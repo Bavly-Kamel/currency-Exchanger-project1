@@ -12,7 +12,7 @@ import { UiComponent } from './ui/ui.component';
 import { UiCompareComponent } from './ui/ui-compare/ui-compare.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UiConvertComponent } from './ui/ui-convert/ui-convert.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -31,6 +31,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
