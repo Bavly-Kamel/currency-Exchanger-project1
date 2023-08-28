@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Component,OnInit } from '@angular/core';
 import {CurrenciesList} from '../data.static';
 import { FormControl, FormGroup, Validators , FormBuilder} from '@angular/forms';
 import { CurrencyService } from '../../services/currency.service';
@@ -47,9 +46,9 @@ export class UiCompareComponent implements OnInit {
   form = new FormGroup({
     amountFrom: new FormControl<number>('' as any, Validators.required),
     currencyFrom: new FormControl<any>('', Validators.required),
-    // amountTo1: new FormControl<number | null>({ value: null, disabled: false }),
+    amountTo1: new FormControl<number | null>({ value: null, disabled: false }),
     currencyTo1: new FormControl<any>('', Validators.required),
-    // amountTo2: new FormControl<number | null>({ value: null, disabled: false }),
+    amountTo2: new FormControl<number | null>({ value: null, disabled: false }),
     currencyTo2: new FormControl<any>('', Validators.required),
   });
 
@@ -66,7 +65,6 @@ export class UiCompareComponent implements OnInit {
         this.targetcurr2 = this.result.conversion_rates[1].amount
 
         this.form.patchValue({
-
           amountTo1: this.result.conversion_rates[0].amount,
           amountTo2: this.result.conversion_rates[1].amount
         })
