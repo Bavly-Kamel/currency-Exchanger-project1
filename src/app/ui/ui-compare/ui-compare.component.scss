@@ -2,21 +2,21 @@
   @apply block;
 }
 
-.mony-convert {
-  .from-amount {
-    gap: 17.62px;
-    margin-top: 101px;
-    .fst-amount {
-      width: 222px;
-      height: 70px;
-      margin-right: 17.62px;
-      border-radius: 35.238px;
-      border: 0.881px solid #c5c5c5;
-      // background: #f9f9f9;
-      background: #e3e3e3;
-      position: relative;
-    }
-  }
+// .mony-convert {
+// }
+.from-amount {
+  gap: 17.62px;
+  margin-top: 101px;
+}
+.fst-amount {
+  width: 222px;
+  height: 70px;
+  margin-right: 17.62px;
+  border-radius: 35.238px;
+  border: 0.881px solid #c5c5c5;
+  // background: #f9f9f9;
+  background: #e3e3e3;
+  position: relative;
 }
 .amount {
   width: 222px;
@@ -27,7 +27,7 @@ p {
   bottom: 119px;
   color: #fff;
   font-family: Montserrat;
-  font-size: 24.667px;
+  font-size: 23px;
   font-style: normal;
   // font-weight: 600;F
   line-height: normal;
@@ -125,3 +125,45 @@ targeted-currency {
 // .spinner {
 //   -webkit-text-stroke-color: #ff5722; /* Your custom color */
 // }
+
+@media (max-width: 767px) {
+  .w-h {
+    width: 152px;
+    height: 48px;
+    background-color: #c5c5c5;
+  }
+  .w-h-c {
+    width: 152px;
+    height: 48px;
+  }
+  .from-amount {
+    margin-top: 58px;
+  }
+  .to-amount {
+    margin-top: 48px;
+  }
+  .input {
+    margin-top: 16px;
+  }
+  .btn {
+    width: 315px;
+    height: 48px;
+    margin-top: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  p {
+    color: black;
+    font-size: 20px;
+  }
+  .p {
+    top: -40px;
+    font-size: 20px;
+  }
+  .target-absolute {
+    top: -35px;
+    font-size: 16px;
+  }
+}

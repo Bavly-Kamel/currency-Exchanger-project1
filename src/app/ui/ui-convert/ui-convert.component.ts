@@ -17,30 +17,30 @@ export class UiConvertComponent implements OnInit {
   storedcurr: any= {result:0};
 
    constructor(private currencyService : CurrencyService , private fb: FormBuilder,private spinner: NgxSpinnerService ){
-    
-    
-   
+
+
+
    }
    ngOnInit(): void {
     this.currencyService.getCurrencies().subscribe(res => {console.log(res)});
-    this.forms = this.fb.group({ 
+    this.forms = this.fb.group({
       amount: [1], // Default amount
       fromCurrency: ['USD'], // Default currency
       toCurrency: ['EUR'] , // Default currency
       amountTO: ['']
-      
+
     });
-    
- 
-    
-  
+
+
+
+
     this.currencyService.convertCurrency(20,"EGP","USD").subscribe((res)=>{ })
-  
-    
-    
+
+
+
   }
 
-   
+
   title = 'currency';
   selectedOptionTo: string = '2';
   selectedOptionFrom: string = '1';
@@ -48,21 +48,22 @@ export class UiConvertComponent implements OnInit {
 
   form = new FormGroup({
     amountFrom: new FormControl<number>('' as any, Validators.required),
-    currencyFrom: new FormControl<string>('', Validators.required),
-    amountTo: new FormControl<number>({ value: null, disabled: true }),
-    currencyTo: new FormControl<string>('', Validators.required),
+    currencyFrom: new FormControl<any>('', Validators.required),
+    amountTo: new FormControl<number | null>({ value: null, disabled: true }),
+    currencyTo: new FormControl<any>('', Validators.required),
   });
+  // ConCurrency: any;
 
   submit() {
     this.spinner.show();
     this.currencyService.convertCurrency(this.form.value.amountFrom,this.form.value.currencyFrom,this.form.value.currencyTo).subscribe((res)=>{ this.storedcurr = res ; this.form.patchValue({
       amountTo: this.storedcurr.result
-    }) ; 
+    }) ;
     this.spinner.hide();
   })
-   
-    
-    
+
+
+
 }
 
 reset()

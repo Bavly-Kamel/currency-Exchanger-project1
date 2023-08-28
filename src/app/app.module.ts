@@ -26,7 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     UiCompareComponent,
     NotFoundComponent,
     UiConvertComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -38,9 +38,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    
+
     NgxSpinnerModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent],
