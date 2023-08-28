@@ -55,7 +55,7 @@ export class UiCompareComponent implements OnInit {
   submit() {
     console.log(this.form.value)
     this.spinner.show();
-    this.currencyService.compareCurrency(this.form.value.amountFrom, this.form.value.currencyFrom, [this.form.value.currencyTo1, this.form.value.currencyTo2]).subscribe((res) => {
+    this.currencyService.compareCurrency(this.form.value.amountFrom, this.form.value.currencyFrom.code, [this.form.value.currencyTo1.code, this.form.value.currencyTo2.code]).subscribe((res) => {
       this.result = res;
       console.log(res)
 

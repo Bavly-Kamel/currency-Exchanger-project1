@@ -41,20 +41,6 @@
     <div class="relative flex to-amount">
       <div class="relative flex flex-col items-center">
         <p class="target-absolute">Targeted currency</p>
-        <mat-form-field class="form">
-          <mat-select
-            formControlName="currencyTo1"
-
-          >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
-              ><div class="flex flex-row">
-                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
-                {{ ConCurrency.code }}
-              </div></mat-option
-            >
-          </mat-select>
-        </mat-form-field> -->
-
         <div [formGroup]="form">
           <mat-form-field class="w-h-c">
             <mat-select formControlName="currencyTo1">
@@ -71,30 +57,14 @@
                 <div class="flex flex-row">
                   <img class="mr-2 w-7" src="{{ c.flagUrl }}" alt="" />
                   {{ c.code }}
-                </div></mat-option
-              >
+                </div></mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-        <input disabled type="number" class="input w-h" />
+        <input [disabled]="true" type="number" class="input w-h" formControlName="amountTo1"/>
       </div>
       <div class="relative flex flex-col items-center targeted-currency">
         <p class="target-absolute">Targeted currency</p>
-
-        <!-- <mat-form-field class="form w-h-c">
-          <mat-select
-            formControlName="currencyTo2"
-            [(value)]="selectedOptionFrom"
-          >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
-              ><div class="flex flex-row">
-                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
-                {{ ConCurrency.code }}
-              </div></mat-option
-            >
-          </mat-select>
-        </mat-form-field> -->
-
         <div [formGroup]="form">
           <mat-form-field class="w-h-c">
             <mat-select formControlName="currencyTo2">
@@ -117,7 +87,7 @@
           </mat-form-field>
         </div>
 
-        <input disabled type="number" class="input w-h" />
+        <input [disabled]="true" type="number" class="input w-h" formControlName="amountTo2"/>
       </div>
     </div>
     <button (click)="submit()" type="submit" value="submit" class="btn">
