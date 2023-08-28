@@ -30,7 +30,7 @@ export class UiCompareComponent implements OnInit {
       currentTo2: ['']
 
     });
-    //this.currencyService.compareCurrency(20,"EGP",["EGP","QAR"]).subscribe((res)=>{console.log(res)})
+    
 
   }
 
@@ -52,31 +52,6 @@ export class UiCompareComponent implements OnInit {
     currencyTo2: new FormControl<any>('', Validators.required),
   });
 
- /* submit() {
-    console.log(this.form.value)
-    this.spinner.show();
-    this.currencyService.compareCurrency(this.form.value.amountFrom, this.form.value.currencyFrom.code, [this.form.value.currencyTo1.code, this.form.value.currencyTo2.code]).subscribe((res) => {
-      this.result = res;
-      console.log(res)
-
-
-      if (this.result && this.result.conversion_rates) {
-        this.targetcurr1 = this.result.conversion_rates[0].amount
-        this.targetcurr2 = this.result.conversion_rates[1].amount
-
-        this.form.patchValue({
-          amountTo1: this.result.conversion_rates[0].amount,
-          amountTo2: this.result.conversion_rates[1].amount
-        })
-
-      }
-      this.spinner.hide();
-
-    })
-
-
-    console.log(this.form.value);
-  }*/
   submit() {
    
     this.spinner.show();
@@ -98,14 +73,11 @@ export class UiCompareComponent implements OnInit {
     });
   }
   
-  roundToDecimal(value: number, decimals: number): number {
-    const factor = Math.pow(10, decimals);
-    return Math.round(value * factor) / factor;
-  }
+  
   
 
   reset() {
-    //console.log(this.amountFrom.value)
+    
     if (this.amountFrom.value == 0 || this.amountFrom.value == null) {
       this.form.patchValue({
         amountTo1: null,

@@ -52,7 +52,7 @@ export class UiConvertComponent implements OnInit {
     amountTo: new FormControl<number | null>({ value: null, disabled: true }),
     currencyTo: new FormControl<any>('', Validators.required),
   });
-  // ConCurrency: any;
+  
 
   submit() {
     this.spinner.show();
@@ -70,11 +70,6 @@ export class UiConvertComponent implements OnInit {
 }
 
 
-
-roundToDecimal(value: number, decimals: number): number {
-  const factor = Math.pow(10, decimals);
-  return Math.round(value * factor) / factor;
-}
 
 reset()
 {
