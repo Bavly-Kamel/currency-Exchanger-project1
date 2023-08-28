@@ -1,1 +1,29 @@
-<h1 class="text-6xl">Not Found</h1>
+<!-- <h1 class="text-6xl">Not Found</h1>
+
+<div class="ldio-4bmuql2kqz3">
+  <div>
+    <div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div> -->
+
+<div [formGroup]="form">
+  <mat-form-field class="bg-black">
+    <mat-select formControlName="currencyTo1" [(value)]="selectedValue">
+      <mat-select-trigger>
+        <span class="flex items-center">
+          <img class="w-4" src="{{ selectedValue?.flagUrl }}" />
+          <span>{{ selectedValue?.code }}</span>
+        </span>
+      </mat-select-trigger>
+      <mat-option [value]="c" *ngFor="let c of currencesList">
+        <div class="flex flex-row">
+          <img class="mr-2 w-7" src="{{ c.flagUrl }}" alt="" />
+          {{ c.code }}
+        </div></mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</div>

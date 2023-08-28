@@ -14,38 +14,54 @@
       <div class="relative flex items-center">
         <p class="absolute text-xl text-white">From</p>
         <!-- <div class="bg-gray-600 from"></div> -->
-        <mat-form-field class="form">
-          <mat-select
-            formControlName="currencyFrom"
-            [(value)]="selectedOptionFrom"
-          >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
-              ><div class="flex flex-row">
-                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
-                {{ ConCurrency.code }}
-              </div></mat-option
-            >
-          </mat-select>
-        </mat-form-field>
+        <div [formGroup]="form">
+          <mat-form-field class="form">
+            <mat-select formControlName="currencyTo" class="flex items-center">
+              <mat-select-trigger>
+                <span class="flex items-center">
+                  <img
+                    class="w-8 h-8 mr-2"
+                    src="{{ form.get('currencyTo').value?.flagUrl }}"
+                  />
+                  <span>{{ form.get("currencyTo")?.value?.code }}</span>
+                </span>
+              </mat-select-trigger>
+              <mat-option [value]="c" *ngFor="let c of currencesList">
+                <div class="flex flex-row items-center">
+                  <img class="w-8 h-8 mr-2" src="{{ c.flagUrl }}" alt="" />
+                  {{ c.code }}
+                </div></mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
     </div>
     <div class="relative flex items-center justify-center to-amount">
       <div>
         <p class="absolute">To</p>
         <!-- <div class="bg-red-600 to"></div> -->
-        <mat-form-field class="form">
-          <mat-select
-            formControlName="currencyTo"
-            [(value)]="selectedOptionFrom"
-          >
-            <mat-option value="1" *ngFor="let ConCurrency of currencesList"
-              ><div class="flex flex-row">
-                <img class="mr-2 w-7" src="{{ ConCurrency.flagUrl }}" alt="" />
-                {{ ConCurrency.code }}
-              </div></mat-option
-            >
-          </mat-select>
-        </mat-form-field>
+        <div [formGroup]="form">
+          <mat-form-field class="form">
+            <mat-select formControlName="currencyFrom">
+              <mat-select-trigger>
+                <span class="flex items-center">
+                  <img
+                    class="mr-2 w-7"
+                    src="{{ form.get('currencyFrom').value?.flagUrl }}"
+                  />
+                  <span>{{ form.get("currencyFrom")?.value?.code }}</span>
+                </span>
+              </mat-select-trigger>
+              <mat-option [value]="c" *ngFor="let c of currencesList">
+                <div class="flex flex-row">
+                  <img class="mr-2 w-7" src="{{ c.flagUrl }}" alt="" />
+                  {{ c.code }}
+                </div></mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
       <div>
         <p class="absolute">Amount</p>
