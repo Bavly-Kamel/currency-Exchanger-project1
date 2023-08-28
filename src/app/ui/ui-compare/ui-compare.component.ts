@@ -52,7 +52,7 @@ export class UiCompareComponent implements OnInit {
     currencyTo2: new FormControl<any>('', Validators.required),
   });
 
-  submit() {
+ /* submit() {
     console.log(this.form.value)
     this.spinner.show();
     this.currencyService.compareCurrency(this.form.value.amountFrom, this.form.value.currencyFrom.code, [this.form.value.currencyTo1.code, this.form.value.currencyTo2.code]).subscribe((res) => {
@@ -76,7 +76,33 @@ export class UiCompareComponent implements OnInit {
 
 
     console.log(this.form.value);
+  }*/
+  submit() {
+   
+    this.spinner.show();
+    this.currencyService.compareCurrency(this.form.value.amountFrom, this.form.value.currencyFrom.code, [this.form.value.currencyTo1.code, this.form.value.currencyTo2.code]).subscribe((res) => {
+      this.result = res;
+      
+  
+      if (this.result && this.result.conversion_rates) {
+        this.targetcurr1 = this.result.conversion_rates[0].amount.toFixed(4);
+        this.targetcurr2 = this.result.conversion_rates[1].amount.toFixed(4) ;
+  
+        this.form.patchValue({
+          amountTo1: this.targetcurr1,
+          amountTo2: this.targetcurr2
+        });
+      }
+  
+      this.spinner.hide();
+    });
   }
+  
+  roundToDecimal(value: number, decimals: number): number {
+    const factor = Math.pow(10, decimals);
+    return Math.round(value * factor) / factor;
+  }
+  
 
   reset() {
     //console.log(this.amountFrom.value)
