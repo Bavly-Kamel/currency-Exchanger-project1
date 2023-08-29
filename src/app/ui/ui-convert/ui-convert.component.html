@@ -4,13 +4,11 @@
       <div>
         <p class="absolute text-xl text-white">Amount</p>
         <input
-        (input)="reset()"
+          (input)="reset()"
           formControlName="amountFrom"
           type="number"
           min="0"
-
           class="pl-4 pr-4 bg-black border-none outline-none fst-amount"
-
         />
       </div>
       <div class="relative flex items-center">
@@ -71,7 +69,6 @@
 
           type="text"
           class="border-none outline-none snd-amount"
-
         />
       </div>
     </div>
@@ -147,13 +144,10 @@
         <input
           formControlName="amountTo"
           type="text"
-          class="border-none outline-none pl-4 pr-4 snd-amount"
+          class="pl-4 pr-4 border-none outline-none snd-amount"
         />
       </div>
     </div>
     <button (click)="submit()" type="submit" class="btn">Convert</button>
   </form>
 </div>
-
-
-

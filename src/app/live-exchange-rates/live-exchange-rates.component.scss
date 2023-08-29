@@ -1,5 +1,5 @@
-:host{
-  @apply w-full
+:host {
+  @apply w-full;
 }
 
 .portfolio-list {
@@ -17,6 +17,9 @@
   }
   .fav-btn {
     padding: 20px;
+  }
+  .main {
+    padding: 0;
   }
   section {
     padding: 10px;
