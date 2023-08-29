@@ -22,7 +22,7 @@ export class UiConvertComponent implements OnInit {
 
    }
    ngOnInit(): void {
-    this.currencyService.getCurrencies().subscribe(res => {console.log(res)});
+  
     this.forms = this.fb.group({
       amount: [1], // Default amount
       fromCurrency: ['USD'], // Default currency
