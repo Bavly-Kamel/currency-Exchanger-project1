@@ -45,7 +45,7 @@
     display: none;
     position: absolute;
     background-color: #fff;
-    min-width: 496px;
+    width: 496px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     text-align: left;
@@ -103,5 +103,13 @@
     .dropdown-content {
       display: block;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdown.open[_ngcontent-ng-c2332045733]
+    .dropdown-content[_ngcontent-ng-c2332045733] {
+    display: block;
+    width: 350px;
   }
 }
