@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { CurrencyService } from '../../services/currency.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {CurrencyHandlerService} from "../../services/currency.handler.service";
 
 @Component({
   selector: 'app-ui-compare',
@@ -23,7 +24,8 @@ export class UiCompareComponent implements OnInit {
   constructor(
     private currencyService: CurrencyService,
     private fb: FormBuilder,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private serviceHandler: CurrencyHandlerService
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +64,7 @@ export class UiCompareComponent implements OnInit {
       )
       .subscribe((res) => {
         this.result = res;
-
+        this.serviceHandler.emitActionClicked(this.form.value.currencyFrom.code);
         if (this.result && this.result.conversion_rates) {
           this.targetcurr1 = this.result.conversion_rates[0].amount.toFixed(4);
           this.targetcurr2 = this.result.conversion_rates[1].amount.toFixed(4);

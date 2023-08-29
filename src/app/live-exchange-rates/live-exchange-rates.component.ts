@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ICurrency } from '../models/currency.model';
 import { CurrencyService } from '../services/currency.service';
+import {CurrencyHandlerService} from "../services/currency.handler.service";
 
 @Component({
   selector: 'live-exchange-rates',
@@ -11,10 +12,20 @@ export class LiveExchangeRatesComponent {
   currencies: ICurrency[] = [];
   portfolioCurrencies: ICurrency[] = [];
 
-  constructor(private currencyService: CurrencyService) {}
+  constructor(private currencyService: CurrencyService,
+              private handlerService: CurrencyHandlerService) {}
 
   ngOnInit(): void {
     this.getCurrencies();
+    this.handlerService.actionClicked.subscribe( code => {
+      this.currencyService.compareCurrency(1, code, this.portfolioCurrencies.map(x => x.code)).subscribe(resp => {
+        (resp as any).conversion_rates.forEach( curr => {
+           let index = this.portfolioCurrencies.findIndex(x => x.code == curr.currencyCode);
+           this.portfolioCurrencies[index].rate = curr.rate;
+         });
+        console.log(this.portfolioCurrencies);
+      })
+    })
   }
 
   getCurrencies() {
