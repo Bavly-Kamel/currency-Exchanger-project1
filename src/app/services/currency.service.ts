@@ -9,7 +9,7 @@ import { ICurrency } from '../models/currency.model';
 export class CurrencyService {
   baseURL = 'http://www.amrcurrencyconversion.site';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPortfolio() {
     let myPortfolio = localStorage.getItem('myPortfolio')
@@ -30,7 +30,7 @@ export class CurrencyService {
     localStorage.setItem('myPortfolio', JSON.stringify(myPortfolio));
   }
 
-  setNewPortfolio(data: ICurrency[]){
+  setNewPortfolio(data: ICurrency[]) {
     localStorage.setItem('myPortfolio', JSON.stringify(data));
   }
 
@@ -46,15 +46,14 @@ export class CurrencyService {
     );
   }
 
-
   convertCurrency(amount: number, From: string, TO: string) {
     return this.http.get(
-      ` http://51.20.2.168/api/v1/conversion?from=${From}&to=${TO}&amount=${amount}`
+      ` http://51.20.4.55/api/v1/conversion?from=${From}&to=${TO}&amount=${amount}`
     );
   }
   compareCurrency(amount: number, From: string, TO: string[]) {
     return this.http.get(
-      `http://51.20.2.168/api/v1/comparison?from=${From}&amount=${amount}&list=${TO}`
+      `http://51.20.4.55/api/v1/comparison?from=${From}&amount=${amount}&list=${TO}`
     );
   }
 }
