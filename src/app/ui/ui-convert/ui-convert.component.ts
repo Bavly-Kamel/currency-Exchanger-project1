@@ -11,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class UiConvertComponent implements OnInit {
   forms: FormGroup;
-  storedcurr: any = { result: 0 };
+  storedcurr: any= {result:0};
 
   constructor(
     private currencyService: CurrencyService,

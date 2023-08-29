@@ -9,7 +9,7 @@ import { ICurrency } from '../models/currency.model';
 export class CurrencyService {
   baseURL = 'http://www.amrcurrencyconversion.site';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getPortfolio() {
     let myPortfolio = localStorage.getItem('myPortfolio')
@@ -30,6 +30,10 @@ export class CurrencyService {
     localStorage.setItem('myPortfolio', JSON.stringify(myPortfolio));
   }
 
+  setNewPortfolio(data: ICurrency[]){
+    localStorage.setItem('myPortfolio', JSON.stringify(data));
+  }
+
   getCurrencies(): Observable<ICurrency[]> {
     return this.http.get(`${this.baseURL}/api/v1`).pipe(
       map((res: any) => {
@@ -41,6 +45,7 @@ export class CurrencyService {
       })
     );
   }
+
 
   convertCurrency(amount: number, From: string, TO: string) {
     return this.http.get(

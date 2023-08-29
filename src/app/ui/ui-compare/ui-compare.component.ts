@@ -30,7 +30,7 @@ export class UiCompareComponent implements OnInit {
       currentTo2: ['']
 
     });
-    
+
 
   }
 
@@ -53,31 +53,31 @@ export class UiCompareComponent implements OnInit {
   });
 
   submit() {
-   
+
     this.spinner.show();
     this.currencyService.compareCurrency(this.form.value.amountFrom, this.form.value.currencyFrom.code, [this.form.value.currencyTo1.code, this.form.value.currencyTo2.code]).subscribe((res) => {
       this.result = res;
-      
-  
+
+
       if (this.result && this.result.conversion_rates) {
         this.targetcurr1 = this.result.conversion_rates[0].amount.toFixed(4);
         this.targetcurr2 = this.result.conversion_rates[1].amount.toFixed(4) ;
-  
+
         this.form.patchValue({
           amountTo1: this.targetcurr1,
           amountTo2: this.targetcurr2
         });
       }
-  
+
       this.spinner.hide();
     });
   }
-  
-  
-  
+
+
+
 
   reset() {
-    
+
     if (this.amountFrom.value == 0 || this.amountFrom.value == null) {
       this.form.patchValue({
         amountTo1: null,

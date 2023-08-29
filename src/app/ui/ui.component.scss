@@ -1,6 +1,6 @@
 :host {
   background: url("../../assets/img/bg1.png") lightgray 50% / cover no-repeat;
-  @apply flex items-center justify-center relative h-full w-full;
+  @apply flex items-center justify-center relative h-full w-full flex-col;
   position: relative;
 }
 

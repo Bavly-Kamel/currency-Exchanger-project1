@@ -27,9 +27,9 @@ export class AddToFavComponent {
       (this.dropdownBtn &&
         this.dropdownBtn.nativeElement.contains(event.target))
     ) {
-      console.log('clicked inside');
+      
     } else {
-      console.log('clicked outside');
+
       this.isDropdownOpen = false;
     }
   }
