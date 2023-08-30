@@ -48,12 +48,12 @@ export class CurrencyService {
 
   convertCurrency(amount: number, From: string, TO: string) {
     return this.http.get(
-      ` http://51.20.4.55/api/v1/conversion?from=${From}&to=${TO}&amount=${amount}`
+      ` http://16.171.254.71/api/v1/conversion?from=${From}&to=${TO}&amount=${amount}`
     );
   }
   compareCurrency(amount: number, From: string, TO: string[]) {
     return this.http.get(
-      `http://51.20.4.55/api/v1/comparison?from=${From}&amount=${amount}&list=${TO}`
+      `http://16.171.254.71/api/v1/comparison?from=${From}&amount=${amount}&list=${TO}`
     );
   }
 }
